@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+    <div class="companies">
+      <div class="container d-flex justify-content-center func-btn">
+        <button class="btn btn-light" (click)="clickAdd()"><img src="../../../assets/add.png"></button>
+        <button *ngIf="company" (click)="clickDel()" class="btn btn-light"><img src="../../../assets/delete.png" ></button>
+        <button *ngIf="company" (click)="clickUpd()" class="btn btn-light"><img src="../../../assets/refresh.png"></button>
+      </div>
+      <app-add-company *ngIf="showAdd" class="m-5" (onChanged)="clickAddCancel()"></app-add-company>
+      <app-upd-company *ngIf="showUpd" class="m-5" [company]="company" (onChanged)="clickUpdCancel()"></app-upd-company>
+      <app-del-company *ngIf="showDel" class="m-5" [company]="company" (onChanged)="clickDelCancel()"></app-del-company>
+      <app-companies-list (onChanged)="onChanged($event)"></app-companies-list>
+    </div>
+    <div class="company-info">
+      <app-company-info [company]="company"></app-company-info>
+    </div>
+  </div>
+</div>

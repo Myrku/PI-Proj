@@ -1,0 +1,24 @@
+<div class="container students-list">
+  <div>
+    <div class="text-center">Фильтрация</div>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <label class="input-group-text" for="type">Тип фильтра</label>
+      </div>
+      <select class="custom-select" id="type" [(ngModel)]="type">
+        <option [value]="1">По имени</option>
+        <option [value]="2">По специальности</option>
+        <option [value]="3">По году</option>
+      </select>
+    </div>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="data">Данные</span>
+      </div>
+      <input type="text" class="form-control" placeholder="Данные"
+             aria-describedby="data" [(ngModel)]="filterText" (input)="changeInp()">
+    </div>
+  </div>
+  <input *ngFor="let student of studList" [value]="student.name" readonly
+         class="btn btn-light mt-2" [id]="student.id" (click)="clickName(student.id)"/>
+</div>

@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+    <div class="students">
+      <div class="container d-flex justify-content-center func-btn mb-2">
+        <button class="btn btn-light" (click)="clickAdd()"><img src="../../../assets/add.png"></button>
+        <button *ngIf="student" (click)="clickDel()" class="btn btn-light"><img src="../../../assets/delete.png" ></button>
+        <button *ngIf="student" (click)="clickUpd()" class="btn btn-light"><img src="../../../assets/refresh.png"></button>
+      </div>
+      <app-add-student *ngIf="showAdd" (onChanged)="clickAddCancel($event)" class="m-5"></app-add-student>
+      <app-del-student *ngIf="showDel" [student]="student" (onChanged)="clickDelCancel($event)" class="m-5"></app-del-student>
+      <app-upd-student *ngIf="showUpd" [student]="student" class="m-5" (onChanged)="clickUpdCancel($event)"></app-upd-student>
+      <app-students-list (onChanged)="onChanged($event)"></app-students-list>
+    </div>
+    <div class="student-event">
+      <app-students-event [student]="student"></app-students-event>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark h5">
+  <div class="container">
+    <a class="navbar-brand">PiApp</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link" (click)="clickStud()">Студенты</a>
+        <a class="nav-item nav-link" (click)="clickComp()">Компании</a>
+        <a class="nav-item nav-link" (click)="clickEvent()">События</a>
+      </div>
+    </div>
+  </div>
+</nav>
+<app-students *ngIf="showStud"></app-students>
+<app-companies *ngIf="showComp"></app-companies>
+<app-events *ngIf="showEvent"></app-events>

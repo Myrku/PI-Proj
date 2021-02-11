@@ -1,0 +1,10 @@
+<div class="container">
+  <h1 *ngIf="student">{{student.name}}, {{student.spec}}-{{student.syear}}-{{student.group}}
+    <hr/>
+  </h1>
+  <div *ngIf="studentEvents">
+    <h4 *ngFor="let item of studentEvents">
+      {{item.id}}: {{item.company?.name}}, {{item.text}}
+    </h4>
+  </div>
+</div>

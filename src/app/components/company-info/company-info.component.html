@@ -1,0 +1,9 @@
+<div class="container">
+  <h1 *ngIf="company">{{company.name}}
+    <hr/>
+  </h1>
+  <div *ngIf="companyEvent">
+    <h4 *ngFor="let item of companyEvent">{{item.id}}: {{item.date}}, {{item.student.name}}, {{item.text}}</h4>
+  </div>
+</div>
+

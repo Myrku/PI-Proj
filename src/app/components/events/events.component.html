@@ -1,0 +1,32 @@
+<div class="container">
+  <h4 class="display-4 text-center">События</h4>
+  <button class="btn btn-light func-btn" (click)="clickAddEvent()"><img src="../../../assets/add.png"></button>
+  <app-add-event *ngIf="showAdd" (onChanged)="clickAddCancel()"></app-add-event>
+  <app-upd-event *ngIf="showUpd" (onChanged)="clickUpdCancel()" [eventInp]="selectEvent"></app-upd-event>
+  <div>
+    <div class="text-center">Фильтрация</div>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <label class="input-group-text" for="type">Тип фильтра</label>
+      </div>
+      <select class="custom-select" id="type" [(ngModel)]="type">
+        <option [value]="1">По имени</option>
+        <option [value]="2">По году</option>
+      </select>
+    </div>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="data">Данные</span>
+      </div>
+      <input type="text" class="form-control" placeholder="Данные"
+             aria-describedby="data" [(ngModel)]="filterText" (input)="changeInp()">
+    </div>
+  </div>
+  <div *ngIf="eventList">
+    <h4 *ngFor="let item of eventList">
+      <button class="btn btn-light func-btn" (click)="clickDelEvent(item)"><img src="../../../assets/delete.png"></button>
+      <button class="btn btn-light func-btn" (click)="clickUpdEvent(item)"><img src="../../../assets/refresh.png"></button>
+       {{item.id}}: {{item.student.name}}-{{item.student.spec}}-{{item.student.group}}-{{item.student.syear}}, {{item.company?.name}}, {{item.text}}, {{item.date}}
+    </h4>
+  </div>
+</div>

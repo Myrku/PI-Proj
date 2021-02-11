@@ -1,0 +1,4 @@
+<div class="container companies-list">
+  <input *ngFor="let company of dataStudentsService.dataCompanies" [value]="company.name" readonly
+         class="btn btn-light mt-2" [id]="company.id" (click)="clickCompany(company)"/>
+</div>

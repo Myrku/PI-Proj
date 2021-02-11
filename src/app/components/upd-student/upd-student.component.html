@@ -1,0 +1,46 @@
+<div class="container">
+  <h5 class="text-center">Новый студент</h5>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="name">Имя</span>
+    </div>
+    <input type="text" class="form-control" placeholder="Фамилия И.О." aria-label="Имя пользователя"
+           aria-describedby="name" [(ngModel)]="name" required>
+  </div>
+
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <label class="input-group-text" for="spec">Специальность</label>
+    </div>
+    <select class="custom-select" id="spec" [(ngModel)]="specInp" required>
+      <option *ngFor="let spec of dataStudentsService.specList" [value]="spec.name">{{spec.name}}</option>
+    </select>
+  </div>
+
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="year">Год поступления</span>
+    </div>
+    <input type="number" class="form-control" aria-label="Год поступления"
+           aria-describedby="year" [max]="date.getFullYear()"
+           [min]="date.getFullYear() - 10" [(ngModel)]="year" [defaultValue]="date.getFullYear()" required>
+  </div>
+
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="group">Номер группы</span>
+    </div>
+    <input type="number" class="form-control" aria-label="Номер группы"
+           aria-describedby="group" [max]="20" [min]="1" [(ngModel)]="group" [defaultValue]="1" required>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <button class="btn btn-primary btn-block" (click)="clickUpd()">Изменить</button>
+    </div>
+    <div class="col">
+      <button class="btn btn-danger btn-block" (click)="clickCancel()">Отмена</button>
+    </div>
+  </div>
+
+</div>

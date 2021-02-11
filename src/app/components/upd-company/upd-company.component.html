@@ -1,0 +1,18 @@
+<div class="container">
+  <h5 class="text-center">Новая компания</h5>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="name">Название</span>
+    </div>
+    <input type="text" class="form-control" placeholder="Название"
+           aria-describedby="name" [(ngModel)]="name" required="required">
+  </div>
+  <div class="row">
+    <div class="col">
+      <button class="btn btn-primary btn-block" (click)="clickUpd()">Изменить</button>
+    </div>
+    <div class="col">
+      <button class="btn btn-danger btn-block" (click)="clickCancel()">Отмена</button>
+    </div>
+  </div>
+</div>
